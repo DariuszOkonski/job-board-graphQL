@@ -12,8 +12,6 @@ function JobPage() {
     getJob(jobId).then(setJob);
   }, [jobId]);
 
-  console.log(job);
-
   if (!job) {
     return <div>Loading...</div>;
   }
