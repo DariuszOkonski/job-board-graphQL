@@ -14,8 +14,7 @@ await schema.createTable('company', (table) => {
 
 await schema.createTable('job', (table) => {
   table.text('id').notNullable().primary();
-  table.text('companyId').notNullable()
-    .references('id').inTable('company');
+  table.text('companyId').notNullable().references('id').inTable('company');
   table.text('title').notNullable();
   table.text('description');
   table.text('createdAt').notNullable();
@@ -23,8 +22,7 @@ await schema.createTable('job', (table) => {
 
 await schema.createTable('user', (table) => {
   table.text('id').notNullable().primary();
-  table.text('companyId').notNullable()
-    .references('id').inTable('company');
+  table.text('companyId').notNullable().references('id').inTable('company');
   table.text('email').notNullable().unique();
   table.text('password').notNullable();
 });
@@ -33,12 +31,14 @@ await connection.table('company').insert([
   {
     id: 'FjcJCHJALA4i',
     name: 'Facegle',
-    description: 'We are a startup on a mission to disrupt social search engines. Think Facebook meet Google.',
+    description:
+      'We are a startup on a mission to disrupt social search engines. Think Facebook meet Google.',
   },
   {
     id: 'Gu7QW9LcnF5d',
     name: 'Goobook',
-    description: 'We are a startup on a mission to disrupt search social media. Think Google meet Facebook.',
+    description:
+      'We are a startup on a mission to disrupt search social media. Think Google meet Facebook.',
   },
 ]);
 
@@ -54,14 +54,16 @@ await connection.table('job').insert([
     id: 'XYZNJMXFax6n',
     companyId: 'FjcJCHJALA4i',
     title: 'Backend Developer',
-    description: 'We are looking for a Backend Developer familiar with Node.js and Express.',
+    description:
+      'We are looking for a Backend Developer familiar with Node.js and Express.',
     createdAt: '2024-01-27T11:00:00.000Z',
   },
   {
     id: '6mA05AZxvS1R',
     companyId: 'Gu7QW9LcnF5d',
     title: 'Full-Stack Developer',
-    description: 'We are looking for a Full-Stack Developer familiar with Node.js, Express, and React.',
+    description:
+      'We are looking for a Full-Stack Developer familiar with Node.js, Express, and React.',
     createdAt: '2024-01-30T11:00:00.000Z',
   },
 ]);
