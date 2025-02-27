@@ -6,6 +6,7 @@ import {
   getJob,
   getJobs,
   getJobsByCompany,
+  updateJob,
 } from './db/jobs.js';
 
 export const resolvers = {
@@ -29,6 +30,10 @@ export const resolvers = {
   },
 
   Mutation: {
+    updateJob: (_root, { input: { id, title, description } }) => {
+      return updateJob({ id, title, description });
+    },
+
     createJob: (_root, { input: { title, description } }) => {
       const companyId = 'FjcJCHJALA4i'; // TODO: set based on user
       return createJob({ companyId, title, description });
