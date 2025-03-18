@@ -9,6 +9,8 @@ import HomePage from './pages/HomePage';
 import JobPage from './pages/JobPage';
 import LoginPage from './pages/LoginPage';
 
+// TODO: login: alice@facegle.io pass: alice123
+
 function App() {
   const navigate = useNavigate();
   const [user, setUser] = useState(getUser);
@@ -26,23 +28,13 @@ function App() {
   return (
     <>
       <NavBar user={user} onLogout={handleLogout} />
-      <main className="section">
+      <main className='section'>
         <Routes>
-          <Route index path="/"
-            element={<HomePage />}
-          />
-          <Route path="/companies/:companyId"
-            element={<CompanyPage />}
-          />
-          <Route path="/jobs/new"
-            element={<CreateJobPage />}
-          />
-          <Route path="/jobs/:jobId"
-            element={<JobPage />}
-          />
-          <Route path="/login"
-            element={<LoginPage onLogin={handleLogin} />}
-          />
+          <Route index path='/' element={<HomePage />} />
+          <Route path='/companies/:companyId' element={<CompanyPage />} />
+          <Route path='/jobs/new' element={<CreateJobPage />} />
+          <Route path='/jobs/:jobId' element={<JobPage />} />
+          <Route path='/login' element={<LoginPage onLogin={handleLogin} />} />
         </Routes>
       </main>
     </>
